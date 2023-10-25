@@ -15,20 +15,31 @@ function Summary({ adventure, location, stepFour, stepThree, stepTwo }: Props) {
             <Text fontWeight={'bolder'} pl='3' mb='1'>
                 Mission:
             </Text>
-            <Stack px='12'>
+            <Stack px='5'>
                 {adventure && (
                     <Stack direction='row' justifyContent='space-between'>
                         <Box>
+                            <Text mb='1' fontWeight={'bold'}>
+                                Adventure Type:
+                            </Text>
                             <Text mb='1'>
                                 {adventure?.title}: {stepTwo?.title}
+                            </Text>
+                        </Box>
+                        <Box>
+                            <Text mb='1' fontWeight={'bold'}>
+                                Action:
                             </Text>
                             <Text mb='1'>
                                 Save {stepThree?.title} from {stepFour?.title}
                             </Text>
                         </Box>
                         <Box>
+                            <Text mb='1' fontWeight={'bold'} >
+                                Environment type:
+                            </Text>
                             <Text mb='1'>
-                                Environment type: {location}
+                                {location}
                             </Text>
                         </Box>
                     </Stack>
