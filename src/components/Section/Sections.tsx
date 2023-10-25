@@ -1,3 +1,4 @@
+import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Button, Card, CardBody, CardHeader, Heading, Stack } from '@chakra-ui/react'
 import { rollDice } from '../../assets/utils'
 import { Detail } from '../../tables'
 
@@ -6,38 +7,51 @@ type Props = { details: Detail[], title: string, setState: (detail: Detail) => v
 function Sections({ details, title, setState, selected }: Props) {
 
     return (
-        <article style={{ padding: '35px', marginBottom: '5px' }}>
-            <details >
-                <summary >
-                    <h4>{title}:</h4>
-                    <div style={{ display: 'flex', justifyContent: "space-between", alignItems: "center", padding: '10px' }}>
-                        <div style={{ padding: '10px', border: '1px solid white', borderRadius: '5px', width: "65%", textAlign: "left" }}>
-                            <div style={{ fontWeight: "bolder", marginBottom: "5px" }}>{selected ? selected.title : <>Not Selected</>}</div>
-                            <div>{selected ? selected.description : <></>}</div>
-                        </div>
-                        <div style={{ width: "10%" }}>
-                            <button onClick={() => setState(rollDice(details) as Detail)}>Re-roll</button>
-                        </div>
-                    </div>
-                </summary>
-                <ul>
-                    <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "flex-start", padding: "5px" }}>
+        <Card boxShadow='md' p='1' rounded='md' bg='gray.100' mb='5'>
+            <CardHeader p='1'>
+                <Heading textAlign={'center'} as='h2' size='sm' mb='1'>{title}:</Heading>
+            </CardHeader>
+            <CardBody>
+                <Stack direction={'row'} justifyContent='space-between'>
 
-                        {details.map((type) => <button style={{ marginLeft: '10px', width: "30%", display: "flex", justifyContent: "flex-start", flexDirection: "column" }} onClick={() => setState(type)} key={type.id}>
-                            <div style={{ textAlign: "left", fontWeight: 'bold' }}>
-                                {type.title}
-                            </div>
-                            <div style={{ textAlign: "left" }}>
-                                {type.description}
-                            </div>
-                        </button>)}
-                    </div>
-                </ul>
-            </details>
+                    <Box>
+                        <div style={{ fontWeight: "bolder", marginBottom: "5px" }}>{selected ? selected.title : <>Not Selected</>}</div>
+                        <div>{selected ? selected.description : <></>}</div>
+                    </Box>
+                    <Box>
+                        <Button onClick={() => setState(rollDice(details) as Detail)} colorScheme='facebook'>Re-roll</Button>
+                    </Box>
+                </Stack>
+
+                <Accordion allowToggle mt='2'>
+                    <AccordionItem>
+                        <AccordionButton background={'white'}>
+                            <Box as="span" flex='1' textAlign='left' color='gray.700'>
+                                Show All Options
+                            </Box>
+                            <AccordionIcon color='gray.700' />
+                        </AccordionButton>
+
+                        <AccordionPanel pb={4}>
+                            <Stack direction='row' wrap={'wrap'} p='4'>
+
+                                {details.map((type) =>
+                                    <Card w='45%' p='2' cursor={'pointer'} onClick={() => setState(type)} key={type.id} background={type.id === selected?.id ? 'blue.200' : 'white'}>
+                                        <div style={{ textAlign: "left", fontWeight: 'bold' }}>
+                                            {type.title}
+                                        </div>
+                                        <div style={{ textAlign: "left" }}>
+                                            {type.description}
+                                        </div>
+                                    </Card>)}
+                            </Stack>
+                        </AccordionPanel>
+                    </AccordionItem>
+                </Accordion>
+            </CardBody>
 
 
-
-        </article >
+        </Card >
 
     )
 }
