@@ -20,6 +20,7 @@ function AdventureGen({ }: Props) {
         adventureType,
         civicList,
         employmenList,
+        conspiraciesList,
         eventsList,
         explorationList,
         locationList,
@@ -37,6 +38,8 @@ function AdventureGen({ }: Props) {
                 return eventsList.details
             case explorationList.id:
                 return explorationList.details
+            case conspiraciesList.id:
+                return conspiraciesList.details
             default:
                 return null
         }
@@ -72,15 +75,15 @@ function AdventureGen({ }: Props) {
 
     return (
         <>
-            <Stack spacing={2} p='5'>
+            <Stack spacing={2} p='5' m='3'>
                 <Heading as='h2' size='2xl' mb={2}>Adventure Generator</Heading>
                 <Heading as='h5' size='sm'>
                     Quickly inspire a one off DnD game session.
                 </Heading>
             </Stack>
-            <Stack direction="row" spacing={10}>
-                <Button onClick={() => handleClear()} colorScheme='gray'>Clear</Button>
-                <Button onClick={() => handleFullRandom()} colorScheme='facebook'>Full Random</Button>
+            <Stack direction="row" justifyContent="space-between" spacing={10} m='3'>
+                <Button w='30%' onClick={() => handleClear()} colorScheme='gray'>Clear</Button>
+                <Button w='30%' onClick={() => handleFullRandom()} colorScheme='facebook'>Full Random</Button>
             </Stack>
 
             {adventureSelected && (
