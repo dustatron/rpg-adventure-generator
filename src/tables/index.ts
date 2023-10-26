@@ -187,7 +187,6 @@ export const locationList: string[] = [
     "Mountain pass",
     "Small town",
     "Mystical site",
-    "Location",
     "Encampment",
     "Swamp",
     "Island",
@@ -203,6 +202,25 @@ export const locationList: string[] = [
     "Subterranean cavern",
     "Lost City",
     "Ancient castle",
+    "Acient Ruines",
+    "Castle in the sky",
+    "Mountain fortress",
+    "City of Gears",
+    "City of Ice",
+    "Isle of History",
+    "The Hidden Village",
+    "The Invisible Lake",
+    "Village on a giant creature",
+    "dragon graveyard",
+    "The Shadow lands",
+    "Haunted hill",
+    "The Lost Library",
+    "Ship Graveyard",
+    "A Forgotten Amusement parks",
+    "The wasteland",
+    "Petrified forest",
+
+
 ]
 
 const adventureOptions: AventureOptions = {
