@@ -1,4 +1,3 @@
-// import './App.css'
 import AdventureGen from './containers/AdventureGen'
 import { ChakraProvider, Container } from '@chakra-ui/react'
 
