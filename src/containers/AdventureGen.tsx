@@ -3,7 +3,7 @@ import adventureOptions, { Detail } from '../tables'
 import Section from '../components/Section'
 import { rollDice } from '../assets/utils'
 import Location from "../components/Locations"
-import { Box, Button, Heading, Stack, Text } from '@chakra-ui/react'
+import { Button, Heading, Stack } from '@chakra-ui/react'
 import Summary from '../components/Summary/Summary'
 
 type Props = {}
