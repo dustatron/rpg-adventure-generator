@@ -2,12 +2,12 @@ import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPane
 import { rollDice } from '../../assets/utils'
 import { Detail } from '../../tables'
 
-type Props = { details: Detail[], title: string, setState: (detail: Detail) => void, selected?: Detail }
+type Props = { details: Detail[], title: string, setState: (detail: Detail) => void, selected?: Detail, id?: string }
 
-function Sections({ details, title, setState, selected }: Props) {
+function Sections({ details, title, setState, selected, id }: Props) {
 
     return (
-        <Card boxShadow='md' p='1' rounded='md' bg='gray.100' mb='5'>
+        <Card id={id} boxShadow='md' p='1' rounded='md' bg='gray.100' mb='5'>
             <CardHeader p='1'>
                 <Heading textAlign={'center'} as='h2' size='sm' mb='1'>{title}:</Heading>
             </CardHeader>

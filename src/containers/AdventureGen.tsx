@@ -107,6 +107,7 @@ function AdventureGen({ }: Props) {
             )}
             {adventureSelected && sectionTwoSelection && (
                 <Section
+                    id='step-three'
                     title={`Characte To Save`}
                     details={characterToSaveList.details}
                     selected={stepThree}
@@ -115,6 +116,7 @@ function AdventureGen({ }: Props) {
             )}
             {adventureSelected && sectionTwoSelection && (
                 <Section
+                    id='step-four'
                     title={`The Opposition`}
                     details={oppositionList.details}
                     selected={stepFour}
